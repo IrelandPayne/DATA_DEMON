@@ -14,5 +14,3 @@ Progress gets logged in `log/`, one file per month, three fields per entry: what
 6. **Machine Learning** — core algorithms, scikit-learn, model evaluation
 7. **Big Data** — tools and patterns for data that doesn't fit in memory
 8. **Deep Learning** — neural nets, intro to PyTorch or TensorFlow
-
-Cybersecurity fundamentals (Linux, networking, OverTheWire, picoCTF, PortSwigger) run alongside these tracks rather than inside them — notes for that live wherever the capstone project ends up needing them.

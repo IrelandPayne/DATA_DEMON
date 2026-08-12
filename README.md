@@ -1,10 +1,20 @@
 # DATA_DEMON
 
-A self-study log for a two-month intensive in data science and cybersecurity fundamentals, running July–August 2026. Full-time effort, everything built from free resources.
+This repo tracks my amazing, superb, never-done-before data analysis work. (Kidding, mostly.) It's the log for a two-month, full-time, self-directed intensive in data analytics and data science, running July–August 2026, built entirely from free resources.
 
 ## Path
 
-Python and pandas → EDA and visualization → statistics → SQL and data acquisition → machine learning → cybersecurity foundations (Linux, networking, OverTheWire, picoCTF, PortSwigger) → capstone project.
+Python and pandas → exploratory data analysis and visualization (including Power BI) → statistics → SQL and data acquisition → machine learning → deep learning → capstone project.
+
+## Skills covered
+
+- **Python for data analysis:** pandas, NumPy, Jupyter
+- **SQL:** querying, joins, schema design, query performance
+- **Statistics:** descriptive stats, hypothesis testing, probability, the math ML actually needs
+- **Visualization & BI:** matplotlib, seaborn, Power BI (data modeling, DAX, dashboards)
+- **Machine learning:** regression, classification, clustering, model evaluation with scikit-learn
+- **Big data:** Spark basics, cloud data warehouse concepts
+- **Deep learning:** neural nets from first principles through PyTorch
 
 ## Structure
 
@@ -24,7 +34,11 @@ projects/
   _TEMPLATE/      # scaffold for a new project: method reasoning + limitations required
 ```
 
-`learning/` is the process record. `projects/` is the capability record: finished work that demonstrates a skill, built on public or synthetic data only.
+`learning/` is the process record: what I'm studying and how, track by track. `projects/` is the capability record: finished work that demonstrates a skill, built on public or synthetic data only, each one written up with its method and its limitations.
+
+## Why this exists
+
+I'm building toward a career in data analytics, and I wanted a record that shows the actual work, not just a claim on a resume: what I studied, in what order, with what result, and what I'd do differently. Employers get to see the process, not just the highlight reel.
 
 ## Rules I'm holding myself to
 
