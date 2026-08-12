@@ -1,0 +1,28 @@
+# Never commit real/raw data
+*.csv
+*.tsv
+*.xlsx
+*.xls
+*.json
+!**/sample/*.csv
+data/raw/
+*.db
+*.sqlite
+*.sqlite3
+
+# Secrets / credentials
+.env
+*.pem
+*.key
+credentials*
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+venv/
+.venv/
+*.egg-info/
+
+# OS
+.DS_Store
