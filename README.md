@@ -1,6 +1,8 @@
 # DATA_DEMON
 
-This repo tracks my amazing, superb, never-done-before data analysis work. (Kidding, mostly.) It's the log for a two-month, full-time, self-directed intensive in data analytics and data science, running July–August 2026, built entirely from free resources.
+This is my working portfolio and study log for data analytics and data science: a self-directed, full-time intensive running July–August 2026, built entirely from free resources. It exists to show real, dated evidence of the skills below, not just claim them.
+
+If you're an employer or recruiter: `projects/` has the finished, standalone work, each one documented with its method and its limitations, which is the fastest way to see what I can actually do. `learning/` is the process behind it, track by track, with a dated log of what was studied and when.
 
 ## Path
 
@@ -35,10 +37,6 @@ projects/
 ```
 
 `learning/` is the process record: what I'm studying and how, track by track. `projects/` is the capability record: finished work that demonstrates a skill, built on public or synthetic data only, each one written up with its method and its limitations.
-
-## Why this exists
-
-I'm building toward a career in data analytics, and I wanted a record that shows the actual work, not just a claim on a resume: what I studied, in what order, with what result, and what I'd do differently. Employers get to see the process, not just the highlight reel.
 
 ## Rules I'm holding myself to
 
