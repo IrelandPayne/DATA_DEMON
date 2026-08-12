@@ -14,6 +14,13 @@ Querying and reasoning about relational data.
 - [SQLBolt](https://sqlbolt.com/)
 - [PostgreSQL Exercises](https://pgexercises.com/)
 
+## Milestones
+
+- [ ] Write multi-table joins from scratch, not copied
+- [ ] Explain normalization and when to break it deliberately
+- [ ] Use window functions for a running total / rank / lag problem
+- [ ] Read an EXPLAIN plan and explain why a query is slow
+
 ## Exercises
 
 Working files go in `exercises/`.
