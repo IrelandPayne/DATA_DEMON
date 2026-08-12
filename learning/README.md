@@ -6,6 +6,7 @@ Progress gets logged in `log/`, one file per month, three fields per entry: what
 
 ## Tracks
 
+0. **Excel** — formulas, pivot tables, in-sheet cleaning, basic modeling
 1. **Foundations** — Python basics, environment setup, git
 2. **SQL & Databases** — querying, joins, schema design
 3. **Python for Analysis** — pandas, EDA
@@ -17,6 +18,7 @@ Progress gets logged in `log/`, one file per month, three fields per entry: what
 
 ## Sources this plan is based on
 
+- [Awesome Excel](https://github.com/NajiElKotob/Awesome-Excel) — curated list, main source for the Excel track
 - [awesome-data-analysis](https://github.com/pavelgrigoryevds/awesome-data-analysis#sql-databases) — curated list, used mainly for the SQL/databases track
 - [roadmap.sh/data-analyst](https://roadmap.sh/data-analyst?fl=1) — overall track order and scope
 - [Data-Science-Roadmap](https://github.com/Moataz-Elmesmary/Data-Science-Roadmap) — cross-check on scope, especially ML/deep learning
