@@ -14,6 +14,7 @@ Spreadsheet fluency: still the first tool most analysts touch on the job, and of
 
 - [Awesome Excel](https://github.com/NajiElKotob/Awesome-Excel) — curated list, main source for this track
 - [Exceljet](https://exceljet.net/) — formula reference and examples
+- [roadmap.sh/data-analyst](https://roadmap.sh/data-analyst?fl=1) — no dedicated Excel section, but frames Excel as both a data source and a charting tool alongside Power BI; useful for keeping this track connected to the rest of the plan
 
 ## Milestones
 
