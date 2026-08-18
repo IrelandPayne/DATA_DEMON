@@ -2,6 +2,8 @@
 
 The process record. Each track has its own README with what it covers and the resources I'm using, plus an `exercises/` folder for working files.
 
+Exercise files are named `YYYY-MM-DD-short-topic.md` — date prefix keeps them sorted, the slug stays to 2-4 words so the folder listing is easy to scan.
+
 Progress gets logged in `log/`, one file per month, three fields per entry: what I did, what I learned, what's next.
 
 ## Tracks
