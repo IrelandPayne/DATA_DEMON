@@ -13,6 +13,7 @@ Querying and reasoning about relational data.
 - [Mode SQL Tutorial](https://mode.com/sql-tutorial/)
 - [SQLBolt](https://sqlbolt.com/)
 - [PostgreSQL Exercises](https://pgexercises.com/)
+- [Practice Window Functions](https://www.practicewindowfunctions.com)
 
 ## Milestones
 
