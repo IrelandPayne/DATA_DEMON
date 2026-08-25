@@ -368,4 +368,3 @@ DROP TABLE IF EXISTS Movies;
 DROP TABLE IF EXISTS BoxOffice;
 
 -- DONE. 
--- 
