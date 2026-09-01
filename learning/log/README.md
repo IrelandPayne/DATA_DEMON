@@ -4,4 +4,6 @@ Welcome to my personal log! Not too much to see here for the most part, just try
 
 ## 2026
 
+- [September](2026-09.md)
+
 - [August](2026-08.md)
