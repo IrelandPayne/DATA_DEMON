@@ -17,7 +17,7 @@ Querying and reasoning about relational data.
 
 ## Milestones
 
-- [ ] Write multi-table joins from scratch, not copied
+- [x] Write multi-table joins from scratch, not copied
 - [ ] Explain normalization and when to break it deliberately
 - [ ] Use window functions for a running total / rank / lag problem
 - [ ] Read an EXPLAIN plan and explain why a query is slow
