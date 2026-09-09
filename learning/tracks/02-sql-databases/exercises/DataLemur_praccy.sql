@@ -30,7 +30,7 @@ ORDER BY pages.page_id;
 -- This question is straightforward, so let's approach it with simplicity in both thinking and solution.
 SELECT
   part,
-  assembly_step
+  assembly_step,
 FROM parts_assembly
 WHERE finish_date IS NULL;
 
@@ -39,5 +39,18 @@ WHERE finish_date IS NULL;
 -- Write a query that calculates the total viewership for laptops and mobile devices 
 -- where mobile is defined as the sum of tablet and phone viewership. Output the total 
 -- viewership for laptops as laptop_reviews and the total viewership for mobile devices as mobile_views.
+SELECT
+  SUM(CASE WHEN device_type = 'laptop' THEN 1 ELSE 0 END) AS laptop_views,
+  SUM(CASE WHEN device_type IN ('tablet', 'phone') THEN 1 ELSE 0 END) AS mobile_views
+FROM viewership;
 
-
+-- Given a table of Facebook posts, for each user who posted at least twice in 2021, write a query to find the number 
+-- of days between each user’s first post of the year and last post of the year in the year 2021. 
+-- Output the user and number of the days between each user's first and last post.
+SELECT 
+    user_id, 
+    DATEDIFF(MAX(DATE(post_date)), MIN(DATE(post_date))) AS days_between
+FROM posts
+WHERE YEAR(post_date) = 2021
+GROUP BY user_id
+HAVING COUNT(post_id) > 1;
