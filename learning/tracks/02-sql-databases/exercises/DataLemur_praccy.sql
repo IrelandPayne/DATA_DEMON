@@ -30,7 +30,7 @@ ORDER BY pages.page_id;
 -- This question is straightforward, so let's approach it with simplicity in both thinking and solution.
 SELECT
   part,
-  assembly_step,
+  assembly_step
 FROM parts_assembly
 WHERE finish_date IS NULL;
 
@@ -54,3 +54,15 @@ FROM posts
 WHERE YEAR(post_date) = 2021
 GROUP BY user_id
 HAVING COUNT(post_id) > 1;
+
+-- Write a query to identify the top 2 Power Users who sent the highest number of messages on Microsoft Teams in August 2022. 
+-- Display the IDs of these 2 users along with the total number of messages they sent. Output the results in descending order based on the count 
+-- of the messages.
+SELECT 
+  sender_id, 
+  COUNT(message_id) AS count_messages
+FROM messages
+WHERE sent_date >= '2022-08-01' AND sent_date < '2022-09-01'
+GROUP BY sender_id
+ORDER BY count_messages DESC
+LIMIT 2;
