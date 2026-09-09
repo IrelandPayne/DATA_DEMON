@@ -66,3 +66,96 @@ WHERE sent_date >= '2022-08-01' AND sent_date < '2022-09-01'
 GROUP BY sender_id
 ORDER BY count_messages DESC
 LIMIT 2;
+
+-- OR 
+SELECT 
+  sender_id, 
+  COUNT(message_id) AS count_messages
+FROM messages
+WHERE EXTRACT(MONTH FROM sent_date) = '8'
+  AND EXTRACT(YEAR FROM sent_date) = '2022'
+GROUP BY sender_id
+ORDER BY count_messages DESC
+LIMIT 2;
+
+-- Assume you're given a table containing job postings from various companies on the 
+-- LinkedIn platform. Write a query to retrieve the count of companies that have posted 
+-- duplicate job listings.
+
+-- step 1: find which companies have dupes: 
+SELECT 
+  company_id, 
+  title, 
+  description, 
+  COUNT(job_id) AS job_count
+FROM job_listings
+GROUP BY company_id, title, description;
+
+-- then solve: 
+WITH job_count_cte AS (
+  SELECT 
+    company_id, 
+    title, 
+    description, 
+    COUNT(job_id) AS job_count
+  FROM job_listings
+  GROUP BY company_id, title, description
+)
+
+SELECT COUNT(DISTINCT company_id) AS duplicate_companies
+FROM job_count_cte
+WHERE job_count > 1;
+
+-- OR: 
+SELECT COUNT(DISTINCT company_id) AS duplicate_companies
+FROM (
+  SELECT 
+    company_id, 
+    title, 
+    description, 
+    COUNT(job_id) AS job_count
+  FROM job_listings
+  GROUP BY company_id, title, description
+) AS job_count_cte
+WHERE job_count > 1;
+
+-- Assume you're given the tables containing completed trade orders and user details in a Robinhood trading system.
+-- Write a query to retrieve the top three cities that have the highest number of completed trade orders listed in descending order. 
+-- Output the city name and the corresponding number of completed trade orders.
+SELECT 
+  users.city, 
+  COUNT(trades.order_id) AS total_orders 
+FROM trades 
+JOIN users 
+  ON trades.user_id = users.user_id 
+WHERE trades.status = 'Completed' 
+GROUP BY users.city 
+ORDER BY total_orders DESC
+LIMIT 3;
+
+-- Given the reviews table, write a query to retrieve the average star rating for each 
+-- product, grouped by month. The output should display the month as a numerical value, 
+-- product ID, and average star rating rounded to two decimal places. Sort the output first 
+-- by month and then by product ID.
+SELECT
+  EXTRACT(MONTH FROM submit_date) AS mth,
+  product_id AS product,
+  ROUND(AVG(stars), 2) AS avg_stars
+FROM reviews
+GROUP BY 
+    EXTRACT(MONTH FROM submit_date), 
+    product
+ORDER BY mth, product;
+-- group by clause is executed before select, reasoning why we cannot group by mth and have to write out the whole function
+
+-- Companies often perform salary analyses to ensure fair compensation practices. 
+-- One useful analysis is to check if there are any employees earning more than their direct managers.
+-- As a HR Analyst, you're asked to identify all employees who earn more than their direct managers. The result should include the employee's ID and name.
+SELECT 
+  emp.employee_id AS employee_id,
+  emp.name AS employee_name
+FROM employee AS mgr
+INNER JOIN employee AS emp
+  ON mgr.employee_id = emp.manager_id
+WHERE emp.salary > mgr.salary;
+
