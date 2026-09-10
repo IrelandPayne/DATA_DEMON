@@ -161,3 +161,33 @@ WHERE emp.salary > mgr.salary;
 
 -- Assume you have an events table on Facebook app analytics. Write a query to calculate 
 -- the click-through rate (CTR) for the app in 2022 and round the results to 2 decimal places.
+SELECT 
+  app_id, 
+  ROUND(100.0 * SUM(CASE 
+    WHEN event_type = 'click' THEN 1 ELSE 0 END)
+  /
+  SUM(CASE 
+    WHEN event_type = 'impression' THEN 1 ELSE 0 END), 2) AS ctr
+FROM events 
+WHERE EXTRACT(YEAR FROM timestamp) = '2022'
+GROUP BY app_id; 
+
+-- OR 
+SELECT 
+  app_id, 
+  ROUND(100.0 * 
+  COUNT(CASE WHEN event_type = 'click' THEN 1 ELSE NULL END) /
+  COUNT(CASE WHEN event_type = 'impression' THEN 1 ELSE NULL END), 2) AS ctr
+FROM events 
+WHERE EXTRACT(YEAR FROM timestamp) = '2022'
+GROUP BY app_id; 
+
+-- or for extracting the date you could just use: 
+-- WHERE timestamp >= '2022-01-01' AND timestamp < '2023-01-01'
+
+-- Assume you're given tables with information about TikTok user sign-ups and confirmations through 
+-- email and text. New users on TikTok sign up using their email addresses, and upon sign-up, each user 
+-- receives a text message confirmation to activate their account.
+
+-- Write a query to display the user IDs of those who did not confirm their sign-up on the 
+-- first day, but confirmed on the second day.
