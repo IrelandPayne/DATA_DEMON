@@ -191,3 +191,109 @@ GROUP BY app_id;
 
 -- Write a query to display the user IDs of those who did not confirm their sign-up on the 
 -- first day, but confirmed on the second day.
+SELECT 
+  emails.user_id
+FROM emails 
+JOIN texts 
+  USING (email_id)
+WHERE texts.signup_action = 'confirmed'
+  AND texts.action_date = DATE_ADD(emails.signup_date, INTERVAL 1 DAY)
+
+-- Display the number of unique queries as histogram categories, along with the count of employees who executed 
+-- that number of unique queries.
+WITH employee_queries AS (
+  SELECT 
+    e.employee_id,
+    COALESCE(COUNT(DISTINCT q.query_id), 0) AS unique_queries
+  FROM employees AS e
+  LEFT JOIN queries AS q
+    ON e.employee_id = q.employee_id
+      AND q.query_starttime >= '2023-07-01T00:00:00Z'
+      AND q.query_starttime < '2023-10-01T00:00:00Z'
+  GROUP BY e.employee_id
+)
+
+SELECT
+  unique_queries,
+  COUNT(employee_id) AS employee_count
+FROM employee_queries
+GROUP BY unique_queries
+ORDER BY unique_queries;
+
+--- Where clauses 
+SELECT * FROM customers
+WHERE age BETWEEN 18 AND 22
+AND state IN ('Victoria', 'Tasmania', 'Queensland')
+AND gender != 'n/a'
+AND (customer_name LIKE 'A%' OR customer_name LIKE 'B%');
+
+-- group by 
+SELECT 
+  ticker,
+  MIN(open) AS min
+FROM stock_prices
+GROUP BY ticker
+ORDER BY min DESC;
+
+-- another group by praccy 
+SELECT 
+  skill, 
+  COUNT(skill) AS count
+FROM candidates
+GROUP BY skill
+ORDER BY count DESC;
+
+-- having review 
+SELECT 
+  ticker,
+  MIN(open) AS min
+FROM stock_prices
+GROUP BY ticker
+HAVING MIN(open) > 100;
+
+-- comment: having is executed before select (so is group by), 
+-- so have to write out what we are filtering; cannot use aliases
+
+SELECT 
+  candidate_id
+FROM candidates 
+GROUP BY candidate_id
+HAVING COUNT(skill) > 2;
+
+-- even tho we are only selecting by non-aggregates, we are still filtering by them, 
+-- reasoning why we still have a group by. The group by creates one column which is not affected by the having clause
+
+--- complete by tonight: 
+-- 1. WHERE vs HAVING
+-- 2. INNER JOIN vs LEFT JOIN
+-- 3️. GROUP BY + Aggregate Functions
+-- 4️. Find the 2nd/3rd highest salary
+-- 5️ RANK() vs DENSE_RANK() vs ROW_NUMBER()
+-- 6️ CTE vs Subquery
+-- 7️ Find duplicate records
+-- 8️ Find employees earning more than their manager
+-- 9️ CASE WHEN
+-- 10 Running Total using Window Functions
+-- 11 COUNT(*) vs COUNT(column) vs COUNT(DISTINCT column)
+-- 12 Handling NULL values
+-- 13 Top N employees from each department
+-- 14 DELETE vs TRUNCATE vs DROP
+-- 15 SQL Query Execution Order
+
+🐍 Python - Focus on these
+
+1️⃣ List vs Tuple vs Set vs Dictionary
+2️⃣ Mutable vs Immutable
+3️⃣ Functions & Lambda Functions
+4️⃣ for loop vs while loop
+5️⃣ List Comprehension
+6️⃣ Exception Handling
+7️⃣ Handling Missing Values with Pandas
+8️⃣ Filtering DataFrames
+9️⃣ GroupBy in Pandas
+🔟 Merge vs Join
+1️⃣1️⃣ Removing Duplicates
+1️⃣2️⃣ loc vs iloc
+1️⃣3️⃣ Reading CSV/Excel files
+1️⃣4️⃣ Data Cleaning using Pandas
+1️⃣5️⃣ Basic EDA using Python
