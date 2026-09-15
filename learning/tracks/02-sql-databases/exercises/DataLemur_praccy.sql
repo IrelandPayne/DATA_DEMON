@@ -262,6 +262,39 @@ HAVING COUNT(skill) > 2;
 
 -- even tho we are only selecting by non-aggregates, we are still filtering by them, 
 -- reasoning why we still have a group by. The group by creates one column which is not affected by the having clause
+-- where there is having there is typically always group by
+
+--- DISTINCT praccy 
+SELECT 
+  category,
+  COUNT(DISTINCT product) AS count
+FROM product_spend
+GROUP BY category;
+
+--- arithmetic
+SELECT 
+  drug, 
+  (total_sales - cogs) AS total_profit
+FROM pharmacy_sales
+ORDER BY total_profit DESC
+LIMIT 3;
+
+-- JPM praccy
+SELECT 
+  card_name,
+  MAX(issued_amount) - MIN(issued_amount) AS difference
+FROM monthly_cards_issued
+GROUP BY card_name 
+ORDER BY difference DESC;
+
+-- FAANG
+SELECT 
+  ticker,
+  COUNT(ticker) AS count
+FROM stock_prices
+WHERE (close - open)/ open > .10 OR (close - open)/ open < -0.10
+GROUP BY ticker
+ORDER BY count DESC;
 
 --- complete by tonight: 
 -- 1. WHERE vs HAVING
