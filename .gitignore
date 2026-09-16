@@ -1,14 +1,17 @@
-# Never commit real/raw data
-*.csv
-*.tsv
-*.xlsx
-*.xls
-*.json
-!**/sample/*.csv
-data/raw/
+# Never commit real/raw data, regardless of file type.
+# Anything inside a data/ folder is blocked; the only exception is a small
+# public/synthetic sample kept under a data/sample/ folder.
+**/data/*
+!**/data/sample/
+!**/data/sample/**
+
+# Safety net for database files dropped outside a data/ folder
 *.db
 *.sqlite
 *.sqlite3
+
+# One-off: data file kept next to its exercise script instead of a data/ folder
+learning/tracks/03-python-analysis/exercises/education_by_county.csv
 
 # Secrets / credentials
 .env
